@@ -27,6 +27,11 @@ class LinkedList
   end
 
   def first
+    @head
+  end
+
+  def delete_head
+    @head = @head.next
   end
 
   def last
@@ -69,7 +74,7 @@ class LinkedList
         @head = @head.next
       end
     else
-      self[idx - 1].next = self[idx + 1]
+      self[idx - 1].next = self[idx + 1] unless idx.nil?
     end
     # what to with unlinked link ?!?!? => garbage collection
   end

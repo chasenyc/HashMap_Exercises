@@ -37,7 +37,14 @@ class HashMap
         yield(link.key, link.val) unless link.key.nil?
       end
     end
+  end
 
+  def each_with_link
+    @store.each do |linked_list|
+      linked_list.each do |link|
+        yield(link.key, link.val, link) unless link.key.nil?
+      end
+    end
   end
 
   # uncomment when you have Enumerable included
@@ -78,6 +85,6 @@ class HashMap
   end
 
   def bucket(key)
-    # optional but useful; return the bucket corresponding to `key`
+
   end
 end

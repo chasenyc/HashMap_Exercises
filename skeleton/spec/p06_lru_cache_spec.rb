@@ -51,5 +51,13 @@ describe LRUCache do
         expect(Time.now - t1).to be < benchmarks[i] - 0.01
       end
     end
+
+    it "should only have three items" do
+      lru = LRUCache.new(3, Proc.new { |x| x ** 2 })
+      expect(lru.get(2)).to eq(4)
+      expect(lru.get(3)).to eq(9)
+      expect(lru.get(4)).to eq(16)
+      expect(lru.get(5)).to eq(25)
+    end
   end
 end
