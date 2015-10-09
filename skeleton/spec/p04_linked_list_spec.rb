@@ -53,5 +53,10 @@ describe LinkedList do
     it "includes Enumerable module" do
       expect(list.class.ancestors).to include(Enumerable)
     end
+
+    it "calls to_s on linkedlist" do
+      print list.to_s
+      print "\n"
+    end
   end
 end
